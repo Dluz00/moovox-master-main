@@ -1,0 +1,46 @@
+<%- include('../partials/header', { title: "Cadastro de Vacinas - Moovox" }) %>
+
+<div class="d-flex">
+  <%- include('../partials/sidebar') %>
+
+  <main class="flex-grow-1 p-4 bg-leather-main">
+    <h2 class="mb-4 text-white fw-bold">Cadastro de Vacinas</h2>
+
+    <div class="card shadow-sm border-0 fade-delay-1" style="max-width: 600px;">
+      <div class="card-body bg-light rounded">
+        <form action="/admin/vaccine" method="POST">
+          <!-- Campo para o Nome da Vacina -->
+          <div class="mb-3">
+            <label for="name" class="form-label fw-bold">Nome da Vacina</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+          </div>
+
+          <!-- Campo para o ID do Animal -->
+          <div class="mb-3">
+            <label for="animal_id" class="form-label fw-bold">ID do Animal</label>
+            <input type="number" class="form-control" id="animal_id" name="animal_id" required>
+          </div>
+
+          <!-- Campo para a Data de Vacinação -->
+          <div class="mb-3">
+            <label for="vaccination_date" class="form-label fw-bold">Data da Vacinação</label>
+            <input type="date" class="form-control" id="vaccination_date" name="vaccination_date" required>
+          </div>
+
+          <!-- Campo para a Data da Próxima Dose -->
+          <div class="mb-3">
+            <label for="next_dose" class="form-label fw-bold">Data da Próxima Dose</label>
+            <input type="date" class="form-control" id="next_dose" name="next_dose" required>
+          </div>
+
+          <!-- Botão de Submissão do Formulário -->
+          <button type="submit" class="btn btn-success fw-bold px-4">
+            <i class="bi bi-check-circle me-1"></i> Cadastrar
+          </button>
+        </form>
+      </div>
+    </div>
+    </main>
+</div>
+
+<%- include('../partials/footer') %>

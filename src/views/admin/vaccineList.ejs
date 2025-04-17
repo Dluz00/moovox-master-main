@@ -1,0 +1,39 @@
+<%- include('../partials/header', { title: "Lista de Vacinas - Moovox" }) %>
+<div class="d-flex">
+  <%- include('../partials/sidebar') %>
+  <main class="flex-grow-1 p-4 bg-leather-main">
+    <h2 class="text-white fw-bold mb-4">Vacinas Aplicadas</h2>
+    <div class="table-responsive card shadow-sm">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Animal</th>
+            <th>Nome</th>
+            <th>Data Vacinação</th>
+            <th>Próxima Dose</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% vaccines.forEach(v => { %>
+            <tr>
+              <td><%= v.id %></td>
+              <td><%= v.animal_id %></td>
+              <td><%= v.name %></td>
+              <td><%= v.vaccination_date.toLocaleDateString() %></td>
+              <td><%= v.next_dose.toLocaleDateString() %></td>
+              <td>
+                <a href="/admin/vaccine/<%= v.id %>/edit" class="btn btn-sm btn-primary">Editar</a>
+                <form action="/admin/vaccine/<%= v.id %>?_method=DELETE" method="POST" style="display:inline;">
+                  <button class="btn btn-sm btn-danger">Excluir</button>
+                </form>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>
+<%- include('../partials/footer') %>

@@ -1,0 +1,13 @@
+<h1>Editar Vacina</h1>
+<form method="POST" action="/admin/vaccines/edit/<%= vaccine.id %>">
+  <label>Nome da Vacina:</label>
+  <input type="text" name="name" value="<%= vaccine.name %>" required />
+  
+  <label>Data de Aplicação:</label>
+  <input type="date" name="vaccination_date" value="<%= vaccine.vaccination_date %>" required />
+  
+  <label>Próxima Dose:</label>
+  <input type="date" name="next_dose" value="<%= vaccine.next_dose %>" required />
+  
+  <button type="submit">Atualizar</button>
+</form>
